@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :entries,          only: [:create, :destroy]
+  resources :entries,          only: [:create, :destroy] do
+    resources :comments
+  end
   resources :relationships,       only: [:create, :destroy]
+
   #get 'static_pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
