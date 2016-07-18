@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :entries, dependent: :destroy
   # attribute that object can access
   attr_accessor :remember_token, :activation_token, :reset_token
   # method references callback in model layer
@@ -70,6 +71,11 @@ class User < ActiveRecord::Base
   # Check if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Define for new feeds
+  def feed
+    Entry.where("user_id = ?", id)
   end
 
   private
