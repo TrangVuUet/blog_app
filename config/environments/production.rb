@@ -92,4 +92,8 @@ Rails.application.configure do
   #     s3_region: ENV.fetch('AWS_REGION'),
   #   }
   # }
+  config.cache_classes = true
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.assets.digest = true
 end
