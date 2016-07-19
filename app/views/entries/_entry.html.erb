@@ -12,8 +12,9 @@
   </span>
   <%= link_to "posting", new_entry_comment_path(entry) %>
   <span>
-    <% byebug %>
-
+    <% entry.comments.each do |comment| %>
+    <%= comment.content %>
+    <% end %>
   </span>
 </li>
 

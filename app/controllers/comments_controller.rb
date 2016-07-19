@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @entry = Entry.find_by(id: params[:entry_id])
     @comment = @entry.comments.build(entry_params)
     if @comment.save
-      flash[:success] = "Awesome entry created!"
+      flash[:success] = "Commented!"
       redirect_to root_url
     else
       @feed_items = []
