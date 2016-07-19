@@ -2,10 +2,14 @@ class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
+  def new
+    @entry = Entry.new
+  end
+
   def create
     @entry = current_user.entries.build(entry_params)
     if @entry.save
-      flash[:success] = "Awesome entry created!"
+      flash.now[:success] = "Awesome entry created!"
       redirect_to root_url
     else
       @feed_items = []
@@ -17,6 +21,10 @@ class EntriesController < ApplicationController
     @entry.destroy
     flash[:success] = "Post deleted"
     redirect_to request.referrer || root_url
+  end
+
+  def entry_comments
+    Comment.where("entry_id = ?", id)
   end
 
   private

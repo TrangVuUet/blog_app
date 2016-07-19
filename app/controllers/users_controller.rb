@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # Paginate pull out from user table
     @entries = @user.entries.paginate(page: params[:page])
-
+    @comment = Comment.new
   end
 
   def create

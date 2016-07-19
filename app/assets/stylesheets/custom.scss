@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-$gray-medium-light: #eaeaea;
+$gray-medium-light: #CC0099;
 
 .background_image {
   background: url(bg.jpg);
@@ -85,4 +85,14 @@ p {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+.entry {
+  font-size: 3.2em;
+  color: "#CC0000";
+  text-align: center;
+}
+.label {
+  font-size: 3.2em;
+  color: "#CC0099";
+  text-align: left;
 }
