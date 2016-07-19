@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   has_many :entries, dependent: :destroy
+<<<<<<< HEAD
+=======
+  has_many :comments, dependent: :destroy
+>>>>>>> aeb9931b44641f12e0328eb72ac941f21397d26e
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
